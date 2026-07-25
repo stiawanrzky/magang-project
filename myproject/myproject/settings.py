@@ -136,20 +136,20 @@ SIMPLE_JWT = {
 }
 import os
 import dj_database_url
+from pathlib import Path
 
-# Mengambil koneksi Neon dari environment variable (akan diisi di Koyeb)
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+# Pastikan BASE_DIR sudah ada di bagian atas settings.py Anda
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Konfigurasi Host & CORS
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
-CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173').split(',')
-
-# Static files configuration
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# Konfigurasi Database (Otomatis pakai SQLite jika DATABASE_URL tidak ada)
+if os.environ.get('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
