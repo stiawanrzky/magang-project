@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '@/api';
 
 const api = axios.create({
   baseURL: 'https://yudisium.pythonanywhere.com/api/'

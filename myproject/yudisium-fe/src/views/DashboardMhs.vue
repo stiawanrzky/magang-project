@@ -906,7 +906,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from "vue"
 import { useRouter } from "vue-router"
-import axios from "axios"
+import api from '@/api'
 
 const api = axios.create({
   baseURL: 'http://localhost:8000/api/',
