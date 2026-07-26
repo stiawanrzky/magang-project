@@ -1649,7 +1649,7 @@ const getFullImageUrl = (path) => {
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:image')) {
     return path;
   }
-  const backendBaseUrl = api.defaults.baseURL ? api.defaults.baseURL.replace(/\/api\/?$/, '') : 'http://localhost:8000';
+  const backendBaseUrl = api.defaults.baseURL ? api.defaults.baseURL.replace(/\/api\/?$/, '') : 'https://yudisium.pythonanywhere.com/api/';
   return `${backendBaseUrl}${path.startsWith('/') ? path : '/' + path}`;
 };
 
