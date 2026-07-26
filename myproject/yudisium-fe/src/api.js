@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || process.env.REACT_APP_API_URL || 'https://yudisium.pythonanywhere.com/api/'
+  baseURL: 'https://yudisium.pythonanywhere.com/api/'
 });
 
 // INTERCEPTOR: Otomatis tempelkan token ke Header setiap kali panggil API
