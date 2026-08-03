@@ -173,7 +173,7 @@
               <div>
                 <p class="text-xs uppercase tracking-wider opacity-80 font-semibold">Status Akhir Kelulusan</p>
                 <h2 class="text-2xl font-bold mt-1">
-                  <span v-if="statusAkhirDisplay === 'LULUS'" class="text-green-300 flex items-center gap-2"> LULUS</span>
+                  <span v-if="statusAkhirDisplay === 'SELESAI PENDAFTARAN YUDISIUM'" class="text-green-300 flex items-center gap-2"> SELESAI PENDAFTARAN YUDISIUM</span>
                   <span v-else-if="statusAkhirDisplay === 'MENUNGGU_VERIFIKASI'" class="text-yellow-300 flex items-center gap-2"> MENUNGGU VERIFIKASI BAAK</span>
                   <span v-else-if="statusAkhirDisplay === 'SILAKAN_DAFTAR'" class="text-blue-300 flex items-center gap-2"> SILAKAN DAFTAR YUDISIUM</span>
                   <span v-else-if="statusAkhirDisplay === 'PENDAFTARAN_DITOLAK'" class="text-red-300 flex items-center gap-2"> PENDAFTARAN DITOLAK</span>
@@ -191,7 +191,7 @@
             </div>
             
             <!-- Pesan informatif -->
-            <div v-if="progress === 100 && statusAkhirDisplay !== 'LULUS'" class="mt-4 p-3 bg-white/20 rounded-lg text-sm">
+            <div v-if="progress === 100 && statusAkhirDisplay !== 'SELESAI PENDAFTARAN YUDISIUM'" class="mt-4 p-3 bg-white/20 rounded-lg text-sm">
               <p v-if="!statusPendaftaran" class="flex items-center gap-2">
                 ⚠️ <strong>Semua berkas sudah disetujui!</strong> Silakan klik tombol "Daftar Yudisium Sekarang" di bawah untuk melanjutkan.
               </p>
@@ -979,7 +979,7 @@ const statusAkhirDisplay = computed(() => {
   if (semuaBerkasDisetujui) {
     // Cek status pendaftaran yudisium
     if (statusPendaftaran.value === 'DISETUJUI') {
-      return 'LULUS'
+      return 'SELESAI PENDAFTARAN YUDISIUM'
     } else if (statusPendaftaran.value === 'MENUNGGU') {
       return 'MENUNGGU_VERIFIKASI'
     } else if (statusPendaftaran.value === 'DITOLAK') {
